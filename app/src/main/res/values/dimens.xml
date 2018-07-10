@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="layoutMargin">8dp</dimen>
+    <dimen name="imageHeight">180dp</dimen>
+    <dimen name="largeText">18sp</dimen>
+    <dimen name="listviewMargin">4dp</dimen>
+</resources>
