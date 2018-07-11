@@ -31,8 +31,13 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
     private ProgressBar progressBar;
     private TextView tvStatus;
     private static final int NEWS_LOADER_ID = 1;
+
+    // Enter the api key here, so it can be easily removed and added as needed.
+    private static final String API_KEY = "18c2ab65-dca1-48ac-a2a5-2b7026dac1b4";
+
+    // Guardian search url.
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?&api-key=18c2ab65-dca1-48ac-a2a5-2b7026dac1b4&show-fields=thumbnail&show-tags=contributor";
+            "https://content.guardianapis.com/search?&show-fields=thumbnail&show-tags=contributor&api-key=" + API_KEY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

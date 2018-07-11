@@ -72,7 +72,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Get the image associated with the article and set it on the ImageView,
         // if not available set the ImageView visibility to "GONE".
-        if(currentNewsItem.getArticleThumbnail().equals("")) {
+        if (currentNewsItem.getArticleThumbnail().equals("")) {
             // Remove the ImageView if no image is available.
             ivArticleThumbnail.setVisibility(View.GONE);
         } else {
@@ -89,7 +89,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Get the name of the person who wrote the article and set this text on the TextView,
         // if not available set "Contributor Unavailable" on the TextView.
-        if(currentNewsItem.getContributor().equals("")) {
+        if (currentNewsItem.getContributor().equals("")) {
             // Make the text italic if the contributor is unavailable.
             tvContributor.setTypeface(Typeface.create(tvContributor.getTypeface(),
                     Typeface.ITALIC));

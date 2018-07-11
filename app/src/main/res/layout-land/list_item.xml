@@ -22,22 +22,23 @@
                 android:layout_marginTop="@dimen/margin"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_article_thumbnail"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Category" />
 
             <ImageView
                 android:id="@+id/iv_article_thumbnail"
-                android:layout_width="@dimen/zero"
-                android:layout_height="@dimen/imageHeight"
-                android:layout_marginEnd="@dimen/margin"
+                android:layout_width="@dimen/imageSizeLand"
+                android:layout_height="@dimen/imageSizeLand"
+                android:layout_marginBottom="@dimen/margin"
                 android:layout_marginStart="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"
                 android:importantForAccessibility="no"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_category"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_category"
+                app:layout_constraintTop_toTopOf="parent"
                 card_view:srcCompat="@mipmap/ic_launcher" />
 
             <TextView
@@ -45,22 +46,20 @@
                 android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin"
-                android:layout_marginStart="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_article_thumbnail"
+                app:layout_constraintStart_toStartOf="@+id/tv_category"
+                app:layout_constraintTop_toBottomOf="@+id/tv_category"
                 tools:text="This is the article name for the current news article on more than one line" />
 
             <TextView
                 android:id="@+id/tv_contributor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_article"
                 app:layout_constraintTop_toBottomOf="@+id/tv_article"
                 tools:text="Contributor Name" />
 
@@ -69,9 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin"
-                android:layout_marginStart="@dimen/margin"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_contributor"
                 app:layout_constraintTop_toBottomOf="@+id/tv_contributor"
                 tools:text="Date - " />
 

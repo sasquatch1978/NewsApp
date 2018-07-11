@@ -22,7 +22,7 @@
             android:id="@+id/news_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/listviewMargin"
+            android:layout_margin="@dimen/marginSmall"
             android:divider="@null"
             android:drawSelectorOnTop="true"
             android:orientation="vertical" />
