@@ -2,6 +2,7 @@
     <string name="app_name">News App</string>
     <string name="noContributor">Contributor Unavailable</string>
     <string name="noConnection">No internet connection.</string>
-    <string name="noNews">No news found.</string>
+    <string name="noNews">No news found.\n\nPlease restart the app or check back in a few
+        minutes.</string>
     <string name="dash">%s -\u0020</string>
 </resources>

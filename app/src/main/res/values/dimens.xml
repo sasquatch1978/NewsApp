@@ -2,7 +2,8 @@
 <resources>
     <dimen name="zero">0dp</dimen>
     <dimen name="marginSmall">4dp</dimen>
-    <dimen name="margin">8dp</dimen>
+    <dimen name="marginMedium">8dp</dimen>
+    <dimen name="marginLarge">16dp</dimen>
     <dimen name="imageHeight">180dp</dimen>
     <dimen name="cardCornerRadius">4dp</dimen>
     <dimen name="imageSizeLand">120dp</dimen>
