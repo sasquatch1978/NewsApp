@@ -4,5 +4,6 @@
     <string name="noConnection">No internet connection.</string>
     <string name="noNews">No news found.\n\nPlease restart the app or check back in a few
         minutes.</string>
+    <string name="installWebBrowser">Please install a web browser.</string>
     <string name="dash">%s -\u0020</string>
 </resources>

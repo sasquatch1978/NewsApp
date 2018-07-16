@@ -12,14 +12,13 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginMedium">
 
             <TextView
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/marginMedium"
-                android:layout_marginTop="@dimen/marginMedium"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +29,6 @@
                 android:id="@+id/iv_article_thumbnail"
                 android:layout_width="@dimen/zero"
                 android:layout_height="@dimen/imageHeight"
-                android:layout_marginEnd="@dimen/marginMedium"
-                android:layout_marginStart="@dimen/marginMedium"
                 android:layout_marginTop="@dimen/marginMedium"
                 android:importantForAccessibility="no"
                 android:scaleType="fitXY"
@@ -44,8 +41,6 @@
                 android:id="@+id/tv_article"
                 android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/marginMedium"
-                android:layout_marginStart="@dimen/marginMedium"
                 android:layout_marginTop="@dimen/marginMedium"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/black"
@@ -58,7 +53,6 @@
                 android:id="@+id/tv_contributor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/marginMedium"
                 android:layout_marginTop="@dimen/marginMedium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_article"
@@ -68,8 +62,6 @@
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/marginMedium"
-                android:layout_marginStart="@dimen/marginMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_contributor"
@@ -79,10 +71,8 @@
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/marginMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_date"
-                app:layout_constraintTop_toBottomOf="@+id/tv_contributor"
                 tools:text="Time" />
 
         </android.support.constraint.ConstraintLayout>

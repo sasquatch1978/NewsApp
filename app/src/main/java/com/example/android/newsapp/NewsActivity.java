@@ -13,11 +13,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.newsapp.databinding.NewsActivityBinding;
 
@@ -89,7 +91,14 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
 
                 // Make sure an app is installed to complete this action.
                 if (newsWebPage.resolveActivity(getPackageManager()) != null) {
+                    // Start the intent if there is an app installed to handle the intent.
                     startActivity(newsWebPage);
+                } else {
+                    // Show a toast if there isn't an app installed to handle the intent.
+                    Toast noAppForIntent = Toast.makeText(getApplication(),
+                            getString(R.string.installWebBrowser), Toast.LENGTH_SHORT);
+                    noAppForIntent.setGravity(Gravity.CENTER, 0, 0);
+                    noAppForIntent.show();
                 }
             }
         });

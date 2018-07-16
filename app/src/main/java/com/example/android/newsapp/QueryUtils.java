@@ -165,23 +165,28 @@ public final class QueryUtils {
                 // Extract the value for the "currentNewsItem" object with the key called "webTitle"
                 String article = currentNewsItem.getString("webTitle");
 
-                // Extract the value for the "currentNewsItem" object with the key called
-                // "webPublicationDate"
-                String date = currentNewsItem.getString("webPublicationDate");
+                // Check to see if there is a date.
+                String date = "";
+                if (currentNewsItem.has("webPublicationDate")) {
+                    // Extract the value for the "currentNewsItem" object with the key called
+                    // "webPublicationDate"
+                    date = currentNewsItem.getString("webPublicationDate");
+                }
 
                 // Extract the value for the "currentNewsItem" object with the key called "webUrl"
                 String url = currentNewsItem.getString("webUrl");
 
                 // For a given news item, extract the JSONObject associated with the
-                // key called "fields", which represents a list of all fields
+                // key called "fields" if it exists, which represents a list of all fields
                 // for that news item.
-                JSONObject fields = currentNewsItem.getJSONObject("fields");
-
-                // Check to see if there is an image
                 String articleThumbnail = "";
-                if (fields.has("thumbnail")) {
-                    // Extract the value for the "fields" object with the key called "thumbnail"
-                    articleThumbnail = fields.getString("thumbnail");
+                if (currentNewsItem.has("fields")) {
+                    JSONObject fields = currentNewsItem.getJSONObject("fields");
+                    // Check to see if there is an image.
+                    if (fields.has("thumbnail")) {
+                        // Extract the value for the "fields" object with the key called "thumbnail"
+                        articleThumbnail = fields.getString("thumbnail");
+                    }
                 }
 
                 // For a given news item, extract the JSONArray associated with the

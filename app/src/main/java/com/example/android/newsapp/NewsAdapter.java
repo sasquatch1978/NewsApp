@@ -73,7 +73,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Get the image associated with the article and set it on the ImageView,
         // if not available set the ImageView visibility to "GONE".
         if (currentNewsItem.getArticleThumbnail().equals("")) {
-            // Remove the ImageView if no image is available.
+            // Remove the ImageView if an image isn't available.
             ivArticleThumbnail.setVisibility(View.GONE);
         } else {
             // Make sure the ImageView is visible if the image was previously unavailable.
@@ -101,14 +101,27 @@ public class NewsAdapter extends ArrayAdapter<News> {
             tvContributor.setText(currentNewsItem.getContributor());
         }
 
-        // Create a date object from the original date String.
-        createDateObject();
+        // Get the date of the article and set this text on the TextViews,
+        // if not available set the TextViews visibility to "GONE".
+        if (currentNewsItem.getDate().equals("")) {
+            // Remove the date and time TextViews if the date is unavailable.
+            tvDate.setVisibility(View.GONE);
+            tvTime.setVisibility(View.GONE);
+        } else {
+            // Make sure the date and time TextViews are visible if the date was
+            // previously unavailable.
+            tvDate.setVisibility(View.VISIBLE);
+            tvTime.setVisibility(View.VISIBLE);
 
-        // Set the formatted date on the TextView.
-        tvDate.setText(String.format(getContext().getString(R.string.dash), formatDate()));
+            // Create a date object from the original date String.
+            createDateObject();
 
-        // Set the formatted time on the TextView.
-        tvTime.setText(formatTime());
+            // Set the formatted date on the TextView.
+            tvDate.setText(String.format(getContext().getString(R.string.dash), formatDate()));
+
+            // Set the formatted time on the TextView.
+            tvTime.setText(formatTime());
+        }
 
         // Return the whole list item layout with the news data.
         return binding.getRoot();
