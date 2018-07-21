@@ -16,7 +16,7 @@
             android:layout_margin="@dimen/marginMedium">
 
             <TextView
-                android:id="@+id/tv_category"
+                android:id="@+id/tv_topic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/marginMedium"
@@ -24,7 +24,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/iv_article_thumbnail"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Category" />
+                tools:text="Topic" />
 
             <ImageView
                 android:id="@+id/iv_article_thumbnail"
@@ -33,7 +33,7 @@
                 android:importantForAccessibility="no"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_category"
+                app:layout_constraintEnd_toStartOf="@+id/tv_topic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 card_view:srcCompat="@mipmap/ic_launcher" />
@@ -46,8 +46,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_category"
-                app:layout_constraintTop_toBottomOf="@+id/tv_category"
+                app:layout_constraintStart_toStartOf="@+id/tv_topic"
+                app:layout_constraintTop_toBottomOf="@+id/tv_topic"
                 tools:text="This is the article name for the current news article on more than one line" />
 
             <TextView

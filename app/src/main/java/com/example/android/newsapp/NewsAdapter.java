@@ -64,7 +64,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Bind the views.
         ImageView ivArticleThumbnail = binding.ivArticleThumbnail;
-        TextView tvCategory = binding.tvCategory;
+        TextView tvTopic = binding.tvTopic;
         TextView tvArticle = binding.tvArticle;
         TextView tvContributor = binding.tvContributor;
         TextView tvDate = binding.tvDate;
@@ -82,7 +82,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
 
         // Get the type of news that the article is classified as and set this text on the TextView.
-        tvCategory.setText(currentNewsItem.getCategory());
+        tvTopic.setText(currentNewsItem.getTopic());
 
         // Get the title of the article and set this text on the TextView.
         tvArticle.setText(currentNewsItem.getArticle());

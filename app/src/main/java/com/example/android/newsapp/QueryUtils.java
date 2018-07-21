@@ -160,7 +160,7 @@ public final class QueryUtils {
 
                 // Extract the value for the "currentNewsItem" object with the key called
                 // "sectionName"
-                String category = currentNewsItem.getString("sectionName");
+                String topic = currentNewsItem.getString("sectionName");
 
                 // Extract the value for the "currentNewsItem" object with the key called "webTitle"
                 String article = currentNewsItem.getString("webTitle");
@@ -206,7 +206,7 @@ public final class QueryUtils {
 
                 // Create a new {@link News} object with the articleThumbnail, category, article,
                 // contributor, newsItemDate, and url from the JSON response.
-                News newsItem = new News(articleThumbnail, category, article, contributor, date,
+                News newsItem = new News(articleThumbnail, topic, article, contributor, date,
                         url);
 
                 // Add the new {@link News} to the list of news items.
