@@ -93,7 +93,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
             // Make the text italic if the contributor is unavailable.
             tvContributor.setTypeface(Typeface.create(tvContributor.getTypeface(),
                     Typeface.ITALIC));
-            tvContributor.setText(R.string.noContributor);
+            tvContributor.setText(R.string.no_contributor);
         } else {
             // Make sure the text returns to normal if the contributor was previously unavailable.
             tvContributor.setTypeface(Typeface.create(tvContributor.getTypeface(),

@@ -5,15 +5,19 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -21,7 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.newsapp.databinding.NewsActivityBinding;
+import com.example.android.newsapp.databinding.ActivityNewsBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +43,13 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     // Guardian search url.
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?&show-fields=thumbnail&show-tags=contributor&api-key=" + API_KEY;
+            "https://content.guardianapis.com/search?";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        NewsActivityBinding binding = DataBindingUtil.setContentView(this,
-                R.layout.news_activity);
+        ActivityNewsBinding binding = DataBindingUtil.setContentView(this,
+                R.layout.activity_news);
 
         // Bind the views.
         progressBar = binding.progressBar;
@@ -73,7 +77,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
             progressBar.setVisibility(View.GONE);
 
             // Set this text if there isn't a network connection.
-            tvStatus.setText(R.string.noConnection);
+            tvStatus.setText(R.string.no_connection);
         }
 
         // Set a listener for the list that opens the Guardian web page for the news item that
@@ -96,7 +100,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
                 } else {
                     // Show a toast if there isn't an app installed to handle the intent.
                     Toast noAppForIntent = Toast.makeText(getApplication(),
-                            getString(R.string.installWebBrowser), Toast.LENGTH_SHORT);
+                            getString(R.string.install_web_browser), Toast.LENGTH_SHORT);
                     noAppForIntent.setGravity(Gravity.CENTER, 0, 0);
                     noAppForIntent.show();
                 }
@@ -107,7 +111,59 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
     @NonNull
     @Override
     public Loader<List<News>> onCreateLoader(int id, @Nullable Bundle args) {
-        return new NewsLoader(this, NEWS_REQUEST_URL);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        /*
+        getString retrieves a String value from the preferences. The second parameter is
+        the default value for this preference.
+        */
+        // Preference for the topic of news articles to display.
+        String topic = sharedPrefs.getString(
+                getString(R.string.settings_topic_key),
+                getString(R.string.settings_topic_default)
+        );
+
+        // Preference to search the news articles.
+        String search = sharedPrefs.getString(
+                getString(R.string.settings_search_key),
+                getString(R.string.settings_search_default)
+        );
+
+        // Preference to order the news articles by.
+        String orderBy = sharedPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default)
+        );
+
+        // Preference for the number of news articles to display.
+        String numberOfItems = sharedPrefs.getString(
+                getString(R.string.settings_number_of_items_key),
+                getString(R.string.settings_number_of_items_default)
+        );
+
+        // parse breaks apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(NEWS_REQUEST_URL);
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value (example: "order-by=oldest").
+        uriBuilder.appendQueryParameter("api-key", API_KEY);
+        uriBuilder.appendQueryParameter("show-fields", "thumbnail");
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        // If the topic field isn't blank add a parameter to show specific topics.
+        if (!topic.trim().equals("")) {
+            uriBuilder.appendQueryParameter("section", topic);
+        }
+        // If the search field isn't blank add a parameter to search for specific tags.
+        if (!search.trim().equals("")) {
+            uriBuilder.appendQueryParameter("q", search);
+        }
+        uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("page-size", numberOfItems);
+
+        // Return the completed uri
+        return new NewsLoader(this, uriBuilder.toString());
     }
 
     @Override
@@ -125,13 +181,35 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
         progressBar.setVisibility(View.GONE);
 
         // Set this text if there aren't any results.
-        tvStatus.setText(R.string.noNews);
+        tvStatus.setText(R.string.no_news);
     }
 
     @Override
     public void onLoaderReset(@NonNull Loader<List<News>> loader) {
         // Clear out existing data.
         adapter.clear();
+    }
+
+    @Override
+    // This method initializes the contents of the Activity's options menu.
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the Options Menu.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    // This method is called whenever an item in the options menu is selected.
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Determine which item is selected and take the appropriate action.
+        int id = item.getItemId();
+        // Open settings.
+        if (id == R.id.action_settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     // Checks to see if there is an network connection.

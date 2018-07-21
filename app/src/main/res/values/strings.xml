@@ -1,9 +1,97 @@
 <resources>
+    <!-- Title for the application. [CHAR LIMIT=15] -->
     <string name="app_name">News App</string>
-    <string name="noContributor">Contributor Unavailable</string>
-    <string name="noConnection">No internet connection.</string>
-    <string name="noNews">No news found.\n\nPlease restart the app or check back in a few
-        minutes.</string>
-    <string name="installWebBrowser">Please install a web browser.</string>
+
+    <!-- Text that is displayed if there isn't a network connection. [CHAR LIMIT=NONE] -->
+    <string name="no_connection">No internet connection.</string>
+
+    <!-- Text that is displayed if there isn't any articles found. [CHAR LIMIT=NONE] -->
+    <string name="no_news">No news found.\n\nPlease update your settings or check back
+        in a few minutes.</string>
+
+    <!-- Toast text, if there isn't a app installed to handle the intent. [CHAR LIMIT=NONE] -->
+    <string name="install_web_browser">Please install a web browser.</string>
+
+    <!-- Text that is displayed if there isn't a contributor. [CHAR LIMIT=30] -->
+    <string name="no_contributor">Contributor Unavailable</string>
+
+    <!-- The dash between the date and time. [CHAR LIMIT=5] -->
     <string name="dash">%s -\u0020</string>
+
+    <!-- Strings for Settings Menu & SettingsActivity title. [CHAR LIMIT=30] -->
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">News Settings</string>
+
+    <!-- Strings for Topic Preference [CHAR LIMIT=30] -->
+    <string name="settings_topic_label">Topic</string>
+    <string name="settings_topic_key" translatable="false">topic</string>
+    <string name="settings_topic_default" translatable="false">@string/settings_topic_all_topics_value</string>
+
+    <!-- Label for topic "All Topics" option [CHAR LIMIT=20] -->
+    <string name="settings_topic_all_topics_label">All Topics</string>
+    <string name="settings_topic_all_topics_value" translatable="false"> </string>
+
+    <!-- Label for topic "Environment" option [CHAR LIMIT=20] -->
+    <string name="settings_topic_environment_label">Environment</string>
+    <string name="settings_topic_environment_value" translatable="false">environment</string>
+
+    <!-- Label for topic "Science" option [CHAR LIMIT=20] -->
+    <string name="settings_topic_science_label">Science</string>
+    <string name="settings_topic_science_value" translatable="false">science</string>
+
+    <!-- Label for topic "Technology" option [CHAR LIMIT=20] -->
+    <string name="settings_topic_technology_label">Technology</string>
+    <string name="settings_topic_technology_value" translatable="false">technology</string>
+
+    <!-- Label for topic "Travel" option [CHAR LIMIT=20] -->
+    <string name="settings_topic_travel_label">Travel</string>
+    <string name="settings_topic_travel_value" translatable="false">travel</string>
+
+    <!-- Label for topic "US News" option [CHAR LIMIT=20] -->
+    <string name="settings_topic_us_news_label">US News</string>
+    <string name="settings_topic_us_news_value" translatable="false">us-news</string>
+
+    <!-- Label for topic "World News" option [CHAR LIMIT=20] -->
+    <string name="settings_topic_world_news_label">World News</string>
+    <string name="settings_topic_world_news_value" translatable="false">world</string>
+
+    <!-- Strings for the Search Preference [CHAR LIMIT=30] -->
+    <string name="settings_search_label">Search</string>
+    <string name="settings_search_key" translatable="false">search</string>
+    <string name="settings_search_default" translatable="false"> </string>
+    <string name="settings_search_hint">Search News</string>
+
+    <!-- Strings for Order By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_newest_value</string>
+
+    <!-- Label for order-by "Newest" option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_newest_label">Newest</string>
+    <string name="settings_order_by_newest_value" translatable="false">newest</string>
+
+    <!-- Label for order-by "Oldest" option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_oldest_label">Oldest</string>
+    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+
+    <!-- Label for order-by "Relevance" option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_relevance_label">Relevance</string>
+    <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
+
+    <!-- Strings for Number of Items Preference [CHAR LIMIT=30] -->
+    <string name="settings_number_of_items_label">Number of Items</string>
+    <string name="settings_number_of_items_key" translatable="false">number_of_items</string>
+    <string name="settings_number_of_items_default" translatable="false">@string/settings_number_of_items_ten_value</string>
+
+    <!-- Label for number of items "10" option [CHAR LIMIT=10] -->
+    <string name="settings_number_of_items_ten_label">10</string>
+    <string name="settings_number_of_items_ten_value" translatable="false">10</string>
+
+    <!-- Label for number of items "20" option [CHAR LIMIT=10] -->
+    <string name="settings_number_of_items_twenty_label">20</string>
+    <string name="settings_number_of_items_twenty_value" translatable="false">20</string>
+
+    <!-- Label for number of items "30" option [CHAR LIMIT=10] -->
+    <string name="settings_number_of_items_thirty_label">30</string>
+    <string name="settings_number_of_items_thirty_value" translatable="false">30</string>
 </resources>
