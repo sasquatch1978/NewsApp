@@ -39,7 +39,8 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
     private static final int NEWS_LOADER_ID = 1;
 
     // Enter the api key here, so it can be easily removed and added as needed.
-    private static final String API_KEY = "18c2ab65-dca1-48ac-a2a5-2b7026dac1b4";
+    // API Keys can be requested from, https://open-platform.theguardian.com/access/
+    private static final String API_KEY = "API Key goes here";
 
     // Guardian search url.
     private static final String NEWS_REQUEST_URL =
